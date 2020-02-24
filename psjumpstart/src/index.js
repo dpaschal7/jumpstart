@@ -12,7 +12,7 @@ let render = () => {
 
 if (module.hot) {
   module.hot.accept('./app/layout/App', () => {
-    setTimeout(render, 2000);
+    setTimeout(render, 500);
   });
 }
 
