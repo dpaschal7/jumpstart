@@ -7,12 +7,16 @@ class NavBar extends Component {
       <Menu inverted fixed="top">
         <Container>
           <Menu.Item header>
-            <img src="assets/logo.png" alt="logo" />
+            <img src="/assets/logo.png" alt="logo" />
             Jumpstart
           </Menu.Item>
           <Menu.Item name="Events" />
           <Menu.Item>
             <Button floated="right" positive inverted content="Create Event" />
+          </Menu.Item>
+          <Menu.Item position="right">
+            <Button content="Sign Up" inverted />
+            <Button content="Sign In" inverted />
           </Menu.Item>
         </Container>
       </Menu>
