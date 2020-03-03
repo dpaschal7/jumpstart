@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './app/layout/App';
 import * as serviceWorker from './serviceWorker';
@@ -8,9 +9,12 @@ const rootEl = document.getElementById('root');
 
 let render = () => {
   ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <Provider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+
     rootEl
   );
 };
