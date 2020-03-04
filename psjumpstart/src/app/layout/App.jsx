@@ -1,15 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import EventDashboard from '../../features/event/eventDashboard/EventDashboard';
-import NavBar from '../../features/nav/navBar/NavBar';
-import { Container } from 'semantic-ui-react';
-import { Route } from 'react-router-dom';
-import EventDetailedPage from '../../features/event/eventDetailed/EventDetailedPage';
-import PeopleDashboard from '../../features/user/peopleDashboard/PeopleDashboard';
-import UserDetailedPage from '../../features/user/userDetailed/UserDetailedPage';
-import SettingsDashboard from '../../features/user/settings/SettingsDashboard';
-import EventForm from '../../features/event/eventForm/EventForm';
-import HomePage from '../../features/home/HomePage';
-import TestComponent from '../../features/testarea/TestComponent';
+import React, { Component, Fragment } from "react";
+import EventDashboard from "../../features/event/eventDashboard/EventDashboard";
+import NavBar from "../../features/nav/navBar/NavBar";
+import { Container } from "semantic-ui-react";
+import { Route } from "react-router-dom";
+import EventDetailedPage from "../../features/event/eventDetailed/EventDetailedPage";
+import PeopleDashboard from "../../features/user/peopleDashboard/PeopleDashboard";
+import UserDetailedPage from "../../features/user/userDetailed/UserDetailedPage";
+import SettingsDashboard from "../../features/user/settings/SettingsDashboard";
+import EventForm from "../../features/event/eventForm/EventForm";
+import HomePage from "../../features/home/HomePage";
+import TestComponent from "../../features/testarea/TestComponent";
 class App extends Component {
   render() {
     return (
