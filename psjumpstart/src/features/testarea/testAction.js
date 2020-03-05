@@ -1,4 +1,8 @@
-import { DECREMENT_COUNTER, INCREMENT_COUNTER } from "./testConstants";
+import {
+  DECREMENT_COUNTER,
+  INCREMENT_COUNTER,
+  RESET_COUNTER
+} from "./testConstants";
 
 export const incrementCounter = () => {
   return {
@@ -9,5 +13,11 @@ export const incrementCounter = () => {
 export const decrementCounter = () => {
   return {
     type: DECREMENT_COUNTER
+  };
+};
+
+export const resetCounter = () => {
+  return {
+    type: RESET_COUNTER
   };
 };
