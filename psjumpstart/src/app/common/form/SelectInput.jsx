@@ -14,7 +14,5 @@ const SelectInput = ({
       <Select value={input.value || null} />
     </Form.Field>
   );
-
-  console.log(input.value);
 };
 export default SelectInput;
