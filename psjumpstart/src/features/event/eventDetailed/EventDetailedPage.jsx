@@ -13,7 +13,8 @@ const mapState = (state, ownProps) => {
     date: "",
     city: "",
     venue: "",
-    hostName: ""
+    hostName: "",
+    attendees: []
   };
   if (eventId && state.events.length > 0) {
     event = state.events.filter(event => event.id === eventId)[0];

@@ -16,25 +16,8 @@ const actions = {
 };
 
 class EventDashboard extends Component {
-  state = {
-    isOpen: false,
-    selectedEvent: null //contains selected event object
-  };
-
-  handleCreateEvent = newEvent => {
-    newEvent.id = cuid();
-    newEvent.hostPhotoURL = "/assets/user.png";
-    this.props.createEvent(newEvent);
-  };
-
-  handleUpdateEvent = updatedEvent => {
-    this.props.updateEvent(updatedEvent);
-  };
   handleDeleteEvent = id => {
     this.props.deleteEvent(id);
-    this.setState(({ events }) => ({
-      //events: events.filter(e => e.id !== id)
-    }));
   };
   render() {
     const { events } = this.props;

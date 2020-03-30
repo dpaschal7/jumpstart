@@ -1,0 +1,20 @@
+import React from "react";
+import { Form, Select } from "semantic-ui-react";
+
+const SelectInput = ({
+  input,
+  type,
+  placeholder,
+  multiple,
+  options,
+  meta: { touched, error }
+}) => {
+  return (
+    <Form.Field error={touched && !!error}>
+      <Select value={input.value || null} />
+    </Form.Field>
+  );
+
+  console.log(input.value);
+};
+export default SelectInput;
