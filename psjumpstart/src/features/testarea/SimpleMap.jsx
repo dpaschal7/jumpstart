@@ -13,7 +13,7 @@ class SimpleMap extends Component {
     const { latlng } = this.props;
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ height: "300px", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyAUAdlvi_DGip2_SQgtSuujv6RXBkymMOs" }}
           zoom={this.props.zoom}
