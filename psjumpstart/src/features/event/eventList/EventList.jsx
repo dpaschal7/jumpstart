@@ -10,7 +10,6 @@ class EventList extends Component {
           <EventListItem
             key={event.id}
             event={event}
-            selectEvent={selectEvent}
             deleteEvent={deleteEvent}
           />
         ))}
