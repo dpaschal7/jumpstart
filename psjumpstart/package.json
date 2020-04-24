@@ -55,7 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-redux-toastr": "^7.4.1",
+    "@types/react-redux-toastr": "^7.6.0",
     "@types/react-router-dom": "^4.3.5",
     "prettier": "^1.19.1",
     "redux-devtools-extension": "^2.13.8",

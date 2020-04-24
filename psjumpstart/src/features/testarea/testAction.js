@@ -3,8 +3,8 @@ import {
   INCREMENT_COUNTER,
   RESET_COUNTER
 } from "./testConstants";
-import { asyncActionStart, asyncActionFinish } from "../async/asyncActions";
-import {ASYNC_ACTION_START} from "../async/asyncConstants" 
+import { asyncActionFinish } from "../async/asyncActions";
+import { ASYNC_ACTION_START } from "../async/asyncConstants";
 export const incrementCounter = () => {
   return {
     type: INCREMENT_COUNTER
@@ -23,24 +23,24 @@ export const resetCounter = () => {
   };
 };
 
-const delay = (ms) => {
-  return new Promise(resolve => setTimeout(resolve, ms)) 
-}
+const delay = ms => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
 
-export const incrementAsync = (name) => {
+export const incrementAsync = name => {
   return async dispatch => {
-    dispatch({ type: ASYNC_ACTION_START, payload: name})
-    await delay(1000)
-    dispatch({type: INCREMENT_COUNTER})
-    dispatch(asyncActionFinish())
-  }
-}
+    dispatch({ type: ASYNC_ACTION_START, payload: name });
+    await delay(1000);
+    dispatch({ type: INCREMENT_COUNTER });
+    dispatch(asyncActionFinish());
+  };
+};
 
-export const decrementAsync = (name) => {
+export const decrementAsync = name => {
   return async dispatch => {
-    dispatch( {type: ASYNC_ACTION_START, payload: name})
-    await delay(1000)
-    dispatch({type: DECREMENT_COUNTER})
-    dispatch(asyncActionFinish())
-  }
-}
+    dispatch({ type: ASYNC_ACTION_START, payload: name });
+    await delay(1000);
+    dispatch({ type: DECREMENT_COUNTER });
+    dispatch(asyncActionFinish());
+  };
+};
