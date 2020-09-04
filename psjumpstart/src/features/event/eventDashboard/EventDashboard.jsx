@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import EventList from "../eventList/EventList";
 import cuid from "cuid";
 import { createEvent, deleteEvent, updateEvent } from "../eventActions";
+import { firestoreConnect } from "react-redux-firebase";
 //const eventsFromDashBoard =
 const mapState = state => ({
   events: state.events
@@ -33,4 +34,7 @@ class EventDashboard extends Component {
     );
   }
 }
-export default connect(mapState, actions)(EventDashboard);
+export default connect(
+  mapState,
+  actions
+)(firestoreConnect([{ collection: "events" }])(EventDashboard));
