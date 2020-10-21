@@ -8,7 +8,7 @@ export const login = creds => {
         creds
       }
     });
-    dispatch(closeModal)
+    dispatch(closeModal())
 
   }
  

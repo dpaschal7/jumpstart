@@ -5,9 +5,11 @@ import EventList from "../eventList/EventList";
 import cuid from "cuid";
 import { createEvent, deleteEvent, updateEvent } from "../eventActions";
 import { firestoreConnect } from "react-redux-firebase";
+import LoadingComponent from "../../../app/layout/LoadingComponent";
 //const eventsFromDashBoard =
 const mapState = state => ({
-  events: state.events
+  events: state.events,
+  loading: state.async.loading
 });
 
 const actions = {
@@ -21,7 +23,8 @@ class EventDashboard extends Component {
     this.props.deleteEvent(id);
   };
   render() {
-    const { events } = this.props;
+    const { events, loading } = this.props;
+    if (loading) return <LoadingComponent />;
     return (
       <Grid>
         <Grid.Column width={10}>
