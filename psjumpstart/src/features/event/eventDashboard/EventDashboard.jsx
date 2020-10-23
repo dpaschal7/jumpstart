@@ -6,6 +6,7 @@ import cuid from "cuid";
 import { createEvent, deleteEvent, updateEvent } from "../eventActions";
 import { firestoreConnect } from "react-redux-firebase";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
+import EventActivity from "../eventActivity/EventActivity";
 //const eventsFromDashBoard =
 const mapState = state => ({
   events: state.events,
@@ -31,7 +32,7 @@ class EventDashboard extends Component {
           <EventList events={events} deleteEvent={this.handleDeleteEvent} />
         </Grid.Column>
         <Grid.Column width={6}>
-          <h2>Activity Feed</h2>
+          <EventActivity />
         </Grid.Column>
       </Grid>
     );
