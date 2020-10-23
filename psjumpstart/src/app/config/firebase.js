@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: "jumpstart-272417.appspot.com",
   messagingSenderId: "32720485121",
   appId: "1:32720485121:web:40052bc517a0c6f8a57900",
-  measurementId: "G-42WSWL8WRP"
+  measurementId: "G-42WSWL8WRP",
 };
 
 firebase.initializeApp(firebaseConfig);
