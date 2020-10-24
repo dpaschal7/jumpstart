@@ -12,9 +12,10 @@ import ScrollToTop from "./app/common/util/ScrollToTop";
 import { loadEvents } from "./features/event/eventActions";
 
 const store = configureStore();
-const rootEl = document.getElementById("root");
+
 store.dispatch(loadEvents());
 
+const rootEl = document.getElementById("root");
 console.log(store.getState());
 
 let render = () => {

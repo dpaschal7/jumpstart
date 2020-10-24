@@ -8,19 +8,19 @@ import { firestoreConnect } from "react-redux-firebase";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import EventActivity from "../eventActivity/EventActivity";
 //const eventsFromDashBoard =
-const mapState = state => ({
+const mapState = (state) => ({
   events: state.events,
-  loading: state.async.loading
+  loading: state.async.loading,
 });
 
 const actions = {
   createEvent,
   deleteEvent,
-  updateEvent
+  updateEvent,
 };
 
 class EventDashboard extends Component {
-  handleDeleteEvent = id => {
+  handleDeleteEvent = (id) => {
     this.props.deleteEvent(id);
   };
   render() {
