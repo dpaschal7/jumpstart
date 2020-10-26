@@ -9,7 +9,7 @@ import LoadingComponent from "../../../app/layout/LoadingComponent";
 import EventActivity from "../eventActivity/EventActivity";
 //const eventsFromDashBoard =
 const mapState = (state) => ({
-  events: state.events,
+  events: state.firestore.ordered.events,
   loading: state.async.loading,
 });
 
