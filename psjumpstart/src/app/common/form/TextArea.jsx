@@ -7,16 +7,12 @@ const TextArea = ({
   width,
   type,
   placeholder,
-  meta: { touched, error }
+  meta: { touched, error },
 }) => {
   return (
     <Form.Field error={touched && !!error}>
       <textarea {...input} placeholder={placeholder} type={type} rows={rows}>
-        {touched && error && (
-          <Label basic color="red">
-            {error}
-          </Label>
-        )}
+        {touched && error && <Label color="red">{error}</Label>}
       </textarea>
     </Form.Field>
   );

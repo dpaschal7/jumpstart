@@ -8,7 +8,7 @@ const PlaceInput = ({
   options,
   placeholder,
   onSelect,
-  meta: { touched, error }
+  meta: { touched, error },
 }) => {
   return (
     <PlacesAutocomplete
@@ -23,23 +23,19 @@ const PlaceInput = ({
             placeholder={placeholder}
             {...getInputProps({ placeholder, onBlur })}
           />
-          {touched && error && (
-            <Label basic color="red">
-              {error}
-            </Label>
-          )}
+          {touched && error && <Label color="red">{error}</Label>}
           {suggestions.length > 0 && (
             <Segment
               style={{
                 marginTop: 0,
                 position: "absolute",
                 zIndex: 1000,
-                width: "100%"
+                width: "100%",
               }}
             >
               {loading && <div>Loading...</div>}
               <List selection>
-                {suggestions.map(suggestion => (
+                {suggestions.map((suggestion) => (
                   <List.Item {...getSuggestionItemProps(suggestion)}>
                     <List.Header>
                       {suggestion.formattedSuggestion.mainText}
