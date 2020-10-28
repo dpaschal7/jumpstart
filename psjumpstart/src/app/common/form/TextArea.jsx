@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, Label } from "semantic-ui-react";
-
 const TextArea = ({
   input,
   rows,

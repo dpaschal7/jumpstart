@@ -6,7 +6,7 @@ import {
   composeValidators,
   combineValidators,
   isRequired,
-  hasLengthGreaterThan
+  hasLengthGreaterThan,
 } from "revalidate";
 import { Segment, Form, Button, Grid, Header } from "semantic-ui-react";
 import { createEvent, updateEvent } from "../eventActions";
@@ -20,14 +20,14 @@ const mapState = (state, ownProps) => {
   const eventId = ownProps.match.params.id;
   let event = {};
   if (eventId && state.events.length > 0) {
-    event = state.events.filter(event => event.id === eventId)[0];
+    event = state.events.filter((event) => event.id === eventId)[0];
   }
   return { initialValues: event };
 };
 
 const actions = {
   createEvent,
-  updateEvent
+  updateEvent,
 };
 
 const validate = combineValidators({
@@ -37,20 +37,20 @@ const validate = combineValidators({
     isRequired({ message: "Please enter a description" }),
     hasLengthGreaterThan(2)({
       message:
-        "Please describe the event with at least three or more characcters"
+        "Please describe the event with at least three or more characcters",
     })
   )(),
   city: isRequired("city"),
   venue: isRequired("venue"),
-  date: isRequired("date")
+  date: isRequired("date"),
 });
 
 class EventForm extends Component {
   state = {
     cityLatLng: {},
-    venueLatLng: {}
+    venueLatLng: {},
   };
-  onFormSubmit = values => {
+  onFormSubmit = (values) => {
     console.log(values);
     values.venueLatLng = this.state.venueLatLng;
     if (this.props.initialValues.id) {
@@ -61,7 +61,7 @@ class EventForm extends Component {
         ...values,
         id: cuid(),
         hostPhotoURL: "/assets/user.png",
-        hostedBy: "Derrick"
+        hostedBy: "Derrick",
       };
       this.props.createEvent(newEvent);
 
@@ -69,19 +69,19 @@ class EventForm extends Component {
     }
   };
 
-  handleCitySelect = selectedCity => {
+  handleCitySelect = (selectedCity) => {
     geocodeByAddress(selectedCity)
-      .then(results => getLatLng(results[0]))
-      .then(latlng => this.setState({ cityLatLng: latlng }))
+      .then((results) => getLatLng(results[0]))
+      .then((latlng) => this.setState({ cityLatLng: latlng }))
       .then(() => {
         this.props.change("city", selectedCity);
       });
   };
 
-  handleVenueSelect = selectedVenue => {
+  handleVenueSelect = (selectedVenue) => {
     geocodeByAddress(selectedVenue)
-      .then(results => getLatLng(results[0]))
-      .then(latlng => this.setState({ venueLatLng: latlng }))
+      .then((results) => getLatLng(results[0]))
+      .then((latlng) => this.setState({ venueLatLng: latlng }))
       .then(() => {
         this.props.change("venue", selectedVenue);
       });
@@ -93,7 +93,7 @@ class EventForm extends Component {
       initialValues,
       invalid,
       submitting,
-      pristine
+      pristine,
     } = this.props;
     return (
       <Grid>
@@ -135,7 +135,7 @@ class EventForm extends Component {
                 options={{
                   location: new google.maps.LatLng(this.state.cityLatLng),
                   radius: 1000,
-                  types: ["establishment"]
+                  types: ["establishment"],
                 }}
                 onSelect={this.handleVenueSelect}
                 placeholder="Event Venue"
@@ -143,7 +143,7 @@ class EventForm extends Component {
               <Field
                 name="date"
                 component={DateInput}
-                dateFormat="dd LLL yyyy h:mm a"
+                dateFormat="dd LLL YYYY h:mm a"
                 showTimeSelect
                 timeFormat="HH:mm"
                 placeholder="Event Date"

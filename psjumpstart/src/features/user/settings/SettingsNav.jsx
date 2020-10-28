@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { Menu, Header } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import React, { Fragment } from "react";
+import { Menu, Header } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 const SettingsNav = () => {
   return (
     <Fragment>
@@ -18,8 +18,16 @@ const SettingsNav = () => {
       </Menu>
 
       <Menu vertical>
-        <Header icon="settings" attached inverted color="grey" content="Account" />
-        <Menu.Item>My Account</Menu.Item>
+        <Header
+          icon="settings"
+          attached
+          inverted
+          color="grey"
+          content="Account"
+        />
+        <Menu.Item as={NavLink} to="/settings/account">
+          My Account
+        </Menu.Item>
       </Menu>
     </Fragment>
   );
