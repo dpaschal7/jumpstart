@@ -4,7 +4,7 @@ import { Segment, Image, Button, Item, Header } from "semantic-ui-react";
 import { format, parseISO } from "date-fns";
 
 const eventImageStyle = {
-  filter: "brightness(30%)"
+  filter: "brightness(30%)",
 };
 
 const eventImageTextStyle = {
@@ -13,7 +13,7 @@ const eventImageTextStyle = {
   left: "5%",
   width: "100%",
   height: "auto",
-  color: "white"
+  color: "white",
 };
 
 const EventDetailedHeader = ({ event }) => {
@@ -36,7 +36,7 @@ const EventDetailedHeader = ({ event }) => {
                   style={{ color: "white" }}
                 />
                 <p>
-                  {event.date && format(parseISO(event.date), "EEEE do LLLL")}
+                  {event.date && format(parseISO(event.date), "EEEE do YYYY")}
                 </p>
                 <p>
                   Hosted by <strong>{event.hostName}</strong>

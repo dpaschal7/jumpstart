@@ -6,11 +6,11 @@ import LoginModal from "./LoginModal";
 const modalLookup = {
   TestModal,
   RegisterModal,
-  LoginModal
+  LoginModal,
 };
 
-const mapState = state => ({
-  currentModal: state.modals
+const mapState = (state) => ({
+  currentModal: state.modals,
 });
 
 const ModalManager = ({ currentModal }) => {
