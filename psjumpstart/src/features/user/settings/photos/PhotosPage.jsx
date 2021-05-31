@@ -5,7 +5,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { Segment, Header, Divider, Grid, Button } from "semantic-ui-react";
 import DropzoneInput from "./DropzoneInput";
 import CropperInput from "./CropperInput";
-import { uploadProfileImage } from "../../userActions";
+import { uploadProfileImage, deletePhoto } from "../../userActions";
 import { toastr } from "react-redux-toastr";
 import UserPhotos from "./UserPhotos";
 
@@ -22,6 +22,7 @@ const query = ({ auth }) => {
 
 const actions = {
   uploadProfileImage,
+  deletePhoto,
 };
 
 const mapState = (state) => ({
@@ -30,9 +31,10 @@ const mapState = (state) => ({
   photos: state.firestore.ordered.photos,
 });
 
-const PhotosPage = ({ uploadProfileImage, photos, profile }) => {
+const PhotosPage = ({ uploadProfileImage, photos, profile, deletePhoto }) => {
   const [files, setFiles] = useState([]);
   const [image, setImage] = useState(null);
+  const [cropResult, setCropResult] = useState("");
   useEffect(() => {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
@@ -53,6 +55,16 @@ const PhotosPage = ({ uploadProfileImage, photos, profile }) => {
   const handleCancelCrop = () => {
     setFiles([]);
     setImage(null);
+    setCropResult("");
+  };
+
+  const handleDeletePhoto = async (photo) => {
+    try {
+      await deletePhoto(photo);
+    } catch (error) {
+      console.log(error);
+      toastr.error("Oops!", error.message);
+    }
   };
 
   return (
@@ -103,7 +115,11 @@ const PhotosPage = ({ uploadProfileImage, photos, profile }) => {
       </Grid>
 
       <Divider />
-      <UserPhotos photos={photos} profile={profile} />
+      <UserPhotos
+        photos={photos}
+        profile={profile}
+        deletePhoto={handleDeletePhoto}
+      />
     </Segment>
   );
 };
